@@ -14,9 +14,7 @@ class SignUpScreen extends StatelessWidget {
     // You have to call it on your starting screen
     SizeConfig().init(context);
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Sign Up"),
-      ),
+
       body: Body(),
     );
   }
