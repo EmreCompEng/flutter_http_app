@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_http_app/model/UserModel.dart';
+import 'package:flutter_http_app/routes.dart';
+import 'package:flutter_http_app/size_config.dart';
+import 'package:flutter_http_app/theme.dart';
+import 'package:flutter_http_app/ui/signup/SignUpScreen.dart';
 import 'package:http/http.dart' as http;
 import 'dart:developer' as developer;
+
+import 'model/UserModel.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,12 +16,14 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      initialRoute: SignUpScreen.routeName,
+      routes: routes,
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      theme: theme(),
+      home: SignUpScreen(),
     );
   }
 }
