@@ -1,57 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_http_app/components/custom_surfix_icon.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_http_app/components/default_button.dart';
 import 'package:flutter_http_app/components/form_error.dart';
-import 'package:flutter_http_app/constants.dart';
+import 'package:flutter_http_app/model/UserData.dart';
+import 'package:flutter_http_app/screens/userdata/UserDataScreen.dart';
+import 'package:flutter_http_app/size_config.dart';
+import 'package:provider/provider.dart';
 
-import '../../size_config.dart';
-
-class SignUpScreen extends StatelessWidget {
-  static String routeName = "/sign_up"; // Router Name
-
-  @override
-  Widget build(BuildContext context) {
-    // You have to call it on your starting screen
-    SizeConfig().init(context);
-    return Scaffold(
-
-      body: Body(),
-    );
-  }
-}
-
-class Body extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return SafeArea(
-      child: SizedBox(
-        width: double.infinity,
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20.0),
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                SizedBox(
-                  height: SizeConfig.screenHeight * 0.04,
-                ),
-                Text(
-                  "Register Account",
-                  style: headingStyle,
-                ),
-                Text(
-                  "Complete your details or continue \nwith social media",
-                  textAlign: TextAlign.center,
-                ),
-                SizedBox(height: SizeConfig.screenHeight * 0.08),
-                SignUpForm(),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
+import '../../../constants.dart';
+import '../../../screens/signup/SignUpScreen.dart';
 
 class SignUpForm extends StatefulWidget {
   @override
@@ -88,6 +45,7 @@ class _SignUpFormState extends State<SignUpForm> {
 
   @override
   Widget build(BuildContext context) {
+    UserData userData = Provider.of<UserData>(context);
     return Form(
       key: _formKey,
       child: Column(
@@ -105,7 +63,9 @@ class _SignUpFormState extends State<SignUpForm> {
               if (_formKey.currentState.validate()) {
                 _formKey.currentState.save();
                 // if all are valid then go to success screen
-                Navigator.pushNamed(context, SignUpScreen.routeName);
+                userData.setName(email);
+                userData.setPassword(password);
+                Navigator.pushNamed(context, UserDataScreen.routeName);
               }
             },
           ),
