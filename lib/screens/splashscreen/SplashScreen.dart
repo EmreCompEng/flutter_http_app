@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_http_app/commons/size_config.dart';
+import 'package:flutter_http_app/commons/sizeConfig.dart';
 import 'package:flutter_http_app/screens/signup/SignUpScreen.dart';
 import 'package:lottie/lottie.dart';
 

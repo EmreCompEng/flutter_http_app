@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_http_app/commons/constants.dart';
-import 'package:flutter_http_app/components/default_button.dart';
-import 'package:flutter_http_app/components/form_error.dart';
+import 'package:flutter_http_app/components/defaultButton.dart';
+import 'package:flutter_http_app/components/formError.dart';
 import 'package:flutter_http_app/model/UserData.dart';
 import 'package:flutter_http_app/screens/userdata/UserDataScreen.dart';
-import 'package:flutter_http_app/commons/size_config.dart';
+import 'package:flutter_http_app/commons/sizeConfig.dart';
 import 'package:provider/provider.dart';
 
 

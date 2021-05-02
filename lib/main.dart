@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_http_app/model/UserData.dart';
 import 'package:flutter_http_app/commons/routes.dart';
+import 'package:flutter_http_app/screens/futureBuilderScreen/FutureBuilderScreen.dart';
 import 'package:flutter_http_app/screens/splashscreen/SplashScreen.dart';
-import 'package:flutter_http_app/commons/size_config.dart';
+import 'package:flutter_http_app/commons/sizeConfig.dart';
 import 'package:flutter_http_app/commons/theme.dart';
 import 'package:flutter_http_app/screens/signup/SignUpScreen.dart';
 import 'package:http/http.dart' as http;
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
       create: (context) => UserData(),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: SplashScreen.routeName,
+        initialRoute: FutureBuilderScreen.routeName,
         routes: routes,
         title: 'Flutter Demo',
         theme: theme(),

@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_http_app/commons/shared_prefs.dart';
+import 'package:flutter_http_app/commons/sharedPrefs.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class UserData extends ChangeNotifier{
@@ -26,8 +26,8 @@ class UserData extends ChangeNotifier{
 
   void SaveUserData(String email, String password) async {
     SharedPreferences prefs= await SharedPreferences.getInstance();
-    await prefs.setString(SharedPrefHelper().getUserEmailDataPrefKey, email);
-    await prefs.setString(SharedPrefHelper().getUserPasswordDataPrefKey, password);
+    await prefs.setString(SharedPrefHelper.emailPrefKey, email);
+    await prefs.setString(SharedPrefHelper.passwordPrefKey, password);
 
   }
 
