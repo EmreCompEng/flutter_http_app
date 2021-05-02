@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
-
-import '../../size_config.dart';
+import '../../commons/size_config.dart';
 import 'components/signup_body.dart';
 
-class SignUpScreen extends StatelessWidget {
+class SignUpScreen extends StatefulWidget {
   static String routeName = "/sign_up"; // Router Name
+  @override
+  _SignUpScreenState createState() => _SignUpScreenState();
+}
 
+class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
-    // You have to call it on your starting screen
-    SizeConfig().init(context);
     return Scaffold(
-      body: Body(),
+      body: Center(child: Body()),
     );
   }
 }
+

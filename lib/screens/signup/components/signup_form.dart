@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter_http_app/commons/constants.dart';
 import 'package:flutter_http_app/components/default_button.dart';
 import 'package:flutter_http_app/components/form_error.dart';
 import 'package:flutter_http_app/model/UserData.dart';
 import 'package:flutter_http_app/screens/userdata/UserDataScreen.dart';
-import 'package:flutter_http_app/size_config.dart';
+import 'package:flutter_http_app/commons/size_config.dart';
 import 'package:provider/provider.dart';
 
-import '../../../constants.dart';
-import '../../../screens/signup/SignUpScreen.dart';
 
 class SignUpForm extends StatefulWidget {
   @override
@@ -20,7 +18,7 @@ class _SignUpFormState extends State<SignUpForm> {
 
   String email;
   String password;
-  String conform_password;
+  String conformPassword;
   bool remember = false;
 
   final List<String> errors = [];
@@ -46,6 +44,7 @@ class _SignUpFormState extends State<SignUpForm> {
   @override
   Widget build(BuildContext context) {
     UserData userData = Provider.of<UserData>(context);
+
     return Form(
       key: _formKey,
       child: Column(
@@ -63,8 +62,8 @@ class _SignUpFormState extends State<SignUpForm> {
               if (_formKey.currentState.validate()) {
                 _formKey.currentState.save();
                 // if all are valid then go to success screen
-                userData.setName(email);
-                userData.setPassword(password);
+                //SaveSharePrefData
+                userData.setUserDatas(email, password);
                 Navigator.pushNamed(context, UserDataScreen.routeName);
               }
             },
@@ -141,19 +140,18 @@ class _SignUpFormState extends State<SignUpForm> {
       ),
     );
   }
-
   // Conform-Password
   TextFormField buildConformPassFormField() {
     return TextFormField(
       obscureText: true,
-      onSaved: (newValue) => conform_password = newValue,
+      onSaved: (newValue) => conformPassword = newValue,
       onChanged: (value) {
         if (value.isNotEmpty) {
           removeError(error: kPassNullError);
-        } else if (value.isNotEmpty && password == conform_password) {
+        } else if (value.isNotEmpty && password == conformPassword) {
           removeError(error: kMatchPassError);
         }
-        conform_password = value;
+        conformPassword = value;
       },
       validator: (value) {
         if (value.isEmpty) {
@@ -175,4 +173,6 @@ class _SignUpFormState extends State<SignUpForm> {
       ),
     );
   }
+
+
 }

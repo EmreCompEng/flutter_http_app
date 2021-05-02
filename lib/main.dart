@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_http_app/model/UserData.dart';
-import 'package:flutter_http_app/routes.dart';
-import 'package:flutter_http_app/size_config.dart';
-import 'package:flutter_http_app/theme.dart';
+import 'package:flutter_http_app/commons/routes.dart';
+import 'package:flutter_http_app/screens/splashscreen/SplashScreen.dart';
+import 'package:flutter_http_app/commons/size_config.dart';
+import 'package:flutter_http_app/commons/theme.dart';
 import 'package:flutter_http_app/screens/signup/SignUpScreen.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
@@ -18,17 +19,17 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    // Notifier tanımı burada yapılması gerekir
 
+    // Notifier tanımı burada yapılması gerekir
     return ChangeNotifierProvider(
       create: (context) => UserData(),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: SignUpScreen.routeName,
+        initialRoute: SplashScreen.routeName,
         routes: routes,
         title: 'Flutter Demo',
         theme: theme(),
-        home: SignUpScreen(),
+        home: SplashScreen(),
       ),
     );
   }
